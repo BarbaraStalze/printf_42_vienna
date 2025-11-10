@@ -1,38 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_i.c                                             :+:      :+:    :+:   */
+/*   ft_u.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bastalze <bastalze@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/04 17:51:31 by bastalze          #+#    #+#             */
-/*   Updated: 2025/11/04 18:08:38 by bastalze         ###   ########.fr       */
+/*   Created: 2025/11/06 12:50:25 by bastalze          #+#    #+#             */
+/*   Updated: 2025/11/06 12:54:07 by bastalze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_print.h"
-#include "libft.h"
 
-void ft_i(int n)
+void ft_u(unsigned int n)
 {
 	char	c;
 
-	if (n == -2147483648)
-	{
-		write (1, "-2147483648", 11);
-		return (0);
-	}
-	if (n < 0)
-	{
-		write (1, "-", 1);
-		n *= -1;
-	}
 	if (n == 0)
 	{
 		write (1, "0", 1);
-		return (0);
+		return ;
 	}
 	if (n > 9)
-		ft_putnbr_fd(n / 10, fd);
+		ft_u(n / 10, fd);
 	c = (n % 10) + '0';
 	write (1, &c, 1);
 }
