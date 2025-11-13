@@ -1,18 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_c.c                                             :+:      :+:    :+:   */
+/*   ft_p.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bastalze <bastalze@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/04 17:16:42 by bastalze          #+#    #+#             */
-/*   Updated: 2025/11/04 17:38:39 by bastalze         ###   ########.fr       */
+/*   Created: 2025/11/12 14:50:33 by bastalze          #+#    #+#             */
+/*   Updated: 2025/11/12 16:43:56 by bastalze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-void	ft_c(char c, int *count)
+static void	ft_recursion(unsigned long int n, int *count)
 {
-	write(1, &c, 1);
+	char	c;
+	char	lower[16];
+
+	lower = "0123456789abcdef";
+	if (!n || n == 0)
+	{
+		write (1, "0", 1);
+		*count++;
+		return ;
+	}
+	if (n > 15)
+		ft_recursion(n / 16, count);
+	c = (n % 16);
+	write (1 , &lower[c], 1);
 	*count++;
+}
+
+void ft_p(long int n, int *count)
+{
+	if (n > 0)
+	{
+		write (1, "0x", 2);
+		*count = *count + 2;
+	}
+	ft_recursion (n, count);
 }

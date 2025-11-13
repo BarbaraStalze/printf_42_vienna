@@ -4,7 +4,8 @@ NAME = libftprintf.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 OBJFILES = $(SOURCES:.c=.o)
-SOURCES = ft_printf.c
+SOURCES = ft_printf.c\
+			ft_
 
 
 all : $(NAME)
@@ -12,7 +13,7 @@ all : $(NAME)
 $(NAME) : $(OBJFILES)
 	ar rcs $(@) $(?)
 
-%.o : %.c libft.h
+%.o : %.c ft_printf.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
