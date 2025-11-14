@@ -6,12 +6,12 @@
 /*   By: bastalze <bastalze@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 12:50:25 by bastalze          #+#    #+#             */
-/*   Updated: 2025/11/06 12:54:07 by bastalze         ###   ########.fr       */
+/*   Updated: 2025/11/13 18:04:58 by bastalze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_print.h"
+#include "ft_printf.h"
 
-void ft_u(unsigned int n)
+void	ft_u(unsigned int n, int *count)
 {
 	char	c;
 
@@ -21,7 +21,8 @@ void ft_u(unsigned int n)
 		return ;
 	}
 	if (n > 9)
-		ft_u(n / 10, fd);
+		ft_u(n / 10, count);
 	c = (n % 10) + '0';
 	write (1, &c, 1);
+	(*count)++;
 }

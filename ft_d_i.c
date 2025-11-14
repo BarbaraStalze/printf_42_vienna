@@ -6,32 +6,36 @@
 /*   By: bastalze <bastalze@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 17:51:31 by bastalze          #+#    #+#             */
-/*   Updated: 2025/11/06 12:48:54 by bastalze         ###   ########.fr       */
+/*   Updated: 2025/11/13 18:04:22 by bastalze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_print.h"
+#include "ft_printf.h"
 
-void ft_d_i(int n)
+void	ft_d_i(int n, int *count)
 {
 	char	c;
 
 	if (n == -2147483648)
 	{
 		write (1, "-2147483648", 11);
-		return (0);
+		*count = *count + 11;
+		return ;
 	}
 	if (n < 0)
 	{
 		write (1, "-", 1);
 		n *= -1;
+		(*count)++;
 	}
 	if (n == 0)
 	{
 		write (1, "0", 1);
-		return (0);
+		(*count)++;
+		return ;
 	}
 	if (n > 9)
-		ft_d_i(n / 10, fd);
+		ft_d_i(n / 10, count);
 	c = (n % 10) + '0';
 	write (1, &c, 1);
+	(*count)++;
 }

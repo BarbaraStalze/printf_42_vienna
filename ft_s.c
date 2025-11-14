@@ -6,19 +6,20 @@
 /*   By: bastalze <bastalze@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 17:20:53 by bastalze          #+#    #+#             */
-/*   Updated: 2025/11/04 17:41:34 by bastalze         ###   ########.fr       */
+/*   Updated: 2025/11/13 17:29:03 by bastalze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-void	ft_s(char *s)
+void	ft_s(char *s, int *count)
 {
 	int	i;
 
 	i = 0;
 	while (s[i])
 	{
-		write(1, &s[i], 1);
 		i++;
+		(*count)++;
 	}
+	write (1, &s, i);
 }

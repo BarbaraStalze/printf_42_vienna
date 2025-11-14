@@ -6,13 +6,13 @@
 /*   By: bastalze <bastalze@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 17:16:42 by bastalze          #+#    #+#             */
-/*   Updated: 2025/11/04 17:38:39 by bastalze         ###   ########.fr       */
+/*   Updated: 2025/11/13 17:44:49 by bastalze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-void	ft_c(char c, int *count)
+void	ft_c(int c, int *count)
 {
-	write(1, &c, 1);
-	*count++;
+	write (1, &c, 1);
+	(*count)++;
 }

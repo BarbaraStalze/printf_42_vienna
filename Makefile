@@ -1,12 +1,16 @@
-# Makefile for ft_print
+# Makefile for ft_printf
 
 NAME = libftprintf.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 OBJFILES = $(SOURCES:.c=.o)
 SOURCES = ft_printf.c\
-			ft_
-
+			ft_c.c\
+			ft_s.c\
+			ft_p.c\
+			ft_d_i.c\
+			ft_u.c\
+			ft_x_X.c
 
 all : $(NAME)
 
@@ -23,3 +27,5 @@ fclean:clean
 	rm -f $(NAME)
 
 re:fclean all
+
+.PHONY: all clean fclean re
