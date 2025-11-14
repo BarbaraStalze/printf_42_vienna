@@ -6,12 +6,12 @@
 /*   By: bastalze <bastalze@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 14:50:33 by bastalze          #+#    #+#             */
-/*   Updated: 2025/11/13 17:59:26 by bastalze         ###   ########.fr       */
+/*   Updated: 2025/11/14 15:09:46 by bastalze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-static void	ft_recursion(long int n, int *count)
+static void	ft_recursion(size_t n, int *count)
 {
 	int		i;
 	char	*lower;
@@ -30,8 +30,14 @@ static void	ft_recursion(long int n, int *count)
 	(*count)++;
 }
 
-void	ft_p(long int n, int *count)
+void	ft_p(size_t n, int *count)
 {
+	if (!n)
+	{
+		write (1, "(nil)", 5);
+		*count = *count + 5;
+		return ;
+	}
 	if (n > 0)
 	{
 		write (1, "0x", 2);

@@ -6,7 +6,7 @@
 /*   By: bastalze <bastalze@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 12:50:25 by bastalze          #+#    #+#             */
-/*   Updated: 2025/11/13 18:04:58 by bastalze         ###   ########.fr       */
+/*   Updated: 2025/11/14 15:16:49 by bastalze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -18,6 +18,7 @@ void	ft_u(unsigned int n, int *count)
 	if (n == 0)
 	{
 		write (1, "0", 1);
+		(*count)++;
 		return ;
 	}
 	if (n > 9)
